@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ToDos from './toDos.js'
-import AddToDo from './addToDo.js'
+import ToDos from './components/toDos'
+import AddToDo from './components/addToDo'
 import { connect } from 'react-redux'
 import actions from './actions/action'
 
