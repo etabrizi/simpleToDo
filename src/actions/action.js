@@ -2,19 +2,19 @@ let actions = {
     removeToDo: (updatedList) => {
         return {
             type: 'removeToDo',
-            updatedList: updatedList
+            updatedList
         }
     },
     tempToDo: (typedValue) => {
         return {
             type: 'tempToDo',
-            typedValue: typedValue
+            typedValue
         }
     },
     addToDo: (stateToAdd) => {
         return {
             type: 'addToDo',
-            stateToAdd: stateToAdd
+            stateToAdd
         }
     }
 }

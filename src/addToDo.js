@@ -7,7 +7,7 @@ const AddToDo = (props) => {
             <form className="addToDo" onSubmit={(event) => { props.addToDo(event) }}>
                 <fieldset>
                     <label htmlFor="todo">Add a todo:</label>
-                    <input id="todo" onChange={(event) => { props.tempToDo(event) }} type="text" />
+                    <input value={props.temp} id="todo" onChange={(event) => { props.tempToDo(event) }} type="text" />
                     <button className="btn">Add to do</button>
                 </fieldset>
             </form>

@@ -35,7 +35,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>My to-do list </h1>
-        <ToDos todos={this.props.todos} temp={this.temp} removeToDo={this.removeToDo} />
+        <ToDos todos={this.props.todos} removeToDo={this.removeToDo} />
         <AddToDo tempToDo={this.tempToDo} addToDo={this.addToDo} temp={this.props.tempTodo} />
       </div>
     );

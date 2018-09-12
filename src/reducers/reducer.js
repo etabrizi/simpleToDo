@@ -22,6 +22,7 @@ const rootReducer = (state = initState, action) => {
         case 'addToDo':
             return {
                 ...state,
+                tempTodo: '',
                 todos: action.stateToAdd
             }
         default:
