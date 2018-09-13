@@ -16,6 +16,12 @@ let actions = {
             type: 'addToDo',
             stateToAdd
         }
+    },
+    disableToDo: (state) => {
+        return {
+            type: 'disableToDo',
+            state
+        }
     }
 }
 

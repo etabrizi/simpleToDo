@@ -1,12 +1,21 @@
 const initState = {
     todos: [
-        { content: 'Buy some milk', id: 1 },
-        { content: 'Go to the gym', id: 2 }
+        {
+            content: 'Buy some milk',
+            id: 1,
+            active: true
+        },
+        {
+            content: 'Go to the gym',
+            id: 2,
+            active: true
+        }
     ],
     tempTodo: ''
 }
 
 const rootReducer = (state = initState, action) => {
+
 
     switch (action.type) {
         case 'removeToDo':
@@ -24,6 +33,11 @@ const rootReducer = (state = initState, action) => {
                 ...state,
                 tempTodo: '',
                 todos: action.stateToAdd
+            }
+        case 'disableToDo':
+            return {
+                ...state,
+                todos: action.state
             }
         default:
             return state
