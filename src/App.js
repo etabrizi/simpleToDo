@@ -14,18 +14,14 @@ class App extends Component {
   disableToDo = (event, id) => {
     event.preventDefault();
     let state = [...this.props.todos];
-    let updateState = state.find(todo => {
-      return (todo.id === id)
-    })
+    let updateState = state.find(todo => todo.id === id);
     updateState.active ? updateState.active = false : updateState.active = true;
     this.props.disableToDo(state);
   }
 
   removeToDo = (event, id) => {
     event.preventDefault();
-    let updatedList = this.props.todos.filter(todo => {
-      return (todo.id !== id)
-    })
+    let updatedList = this.props.todos.filter(todo => todo.id !== id);
     this.props.removeToDo(updatedList);
   }
 
