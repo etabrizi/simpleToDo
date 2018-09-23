@@ -6,6 +6,10 @@ import actions from './actions/action'
 
 class App extends Component {
 
+  componentDidMount() {
+    this.props.fetchData('https://swapi.co/api/people');
+  }
+
   tempToDo = (event) => {
     let typedValue = event.target.value;
     this.props.tempToDo(typedValue);
@@ -39,11 +43,17 @@ class App extends Component {
   }
 
 
-
   render() {
+
+    const loaded = this.props.itemIsLoading ? (<div>Loading Data</div>) : (<div>{this.props.stars.length}</div>);
+
     return (
+
       <div className="container">
-        <h1>My to-do list </h1>
+
+        <div className="hide">{loaded}</div>
+
+        {<h1>My To-Do List</h1>}
         <ToDos todos={this.props.todos} removeToDo={this.removeToDo} disableToDo={this.disableToDo} />
         <AddToDo tempToDo={this.tempToDo} addToDo={this.addToDo} temp={this.props.tempTodo} />
       </div>
@@ -54,7 +64,10 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     todos: state.todos,
-    tempTodo: state.tempTodo
+    tempTodo: state.tempTodo,
+    itemIsLoading: state.itemIsLoading,
+    error: state.error,
+    stars: state.stars
   }
 }
 
@@ -63,7 +76,8 @@ const mapDispatchToProps = (dispatch) => {
     disableToDo: (state) => dispatch(actions.disableToDo(state)),
     removeToDo: (updatedList) => dispatch(actions.removeToDo(updatedList)),
     tempToDo: (typedValue) => dispatch(actions.tempToDo(typedValue)),
-    addToDo: (stateToAdd) => dispatch(actions.addToDo(stateToAdd))
+    addToDo: (stateToAdd) => dispatch(actions.addToDo(stateToAdd)),
+    fetchData: (url) => dispatch(actions.itemsFetchData(url))
   }
 }
 

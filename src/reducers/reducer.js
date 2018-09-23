@@ -11,7 +11,10 @@ const initState = {
             active: true
         }
     ],
-    tempTodo: ''
+    tempTodo: '',
+    itemIsLoading: false,
+    error: false,
+    stars: []
 }
 
 const rootReducer = (state = initState, action) => {
@@ -38,6 +41,21 @@ const rootReducer = (state = initState, action) => {
             return {
                 ...state,
                 todos: action.state
+            }
+        case 'itemIsLoading':
+            return {
+                ...state,
+                itemIsLoading: action.isLoading
+            }
+        case 'itemsHasErrored':
+            return {
+                ...state,
+                error: action.error
+            }
+        case 'itemsFetchDataSuccess':
+            return {
+                ...state,
+                stars: action.stars.results
             }
         default:
             return state
